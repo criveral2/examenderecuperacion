@@ -1,5 +1,6 @@
 package ec.ups.edu.modelo;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +22,8 @@ public class Transaccion {
 	
 	private String Fecha;
 	
+	
+	@JsonbTransient
 	@ManyToOne
 	private Cuenta cuenta;
 

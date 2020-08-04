@@ -3,6 +3,7 @@ package ec.ups.edu.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,6 +31,8 @@ public class Cuenta {
 	@ManyToOne
 	private Cliente cliente;
 	
+	
+	@JsonbTransient
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cuenta")
 	private List<Transaccion> transacciones = new ArrayList<Transaccion>();
 
