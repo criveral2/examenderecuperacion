@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Facturas</title>
+
+
+</h:head>
+<h:body>
+
+	<h:form id="form">
+
+
+		<h1>Buscar</h1>
+
+	
+
+		<h:inputText value="#{clienteBean.buscarCliente}" />
+
+
+		<h:commandButton value="Buscar Cliente" action="#{clienteBean.buscarCliente()}" /> 
+
+
+
+
+	</h:form>
+
+
+	<h:dataTable value="#{clienteBean.clienteEncontrado}" var="f"
+		headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+		<h:column>
+			<f:facet name="header">Codigo</f:facet>#{f.codigo}
+										</h:column>
+		<h:column>
+			<f:facet name="header">Nombre</f:facet>#{f.nombre}
+										</h:column>
+		<h:column>
+			<f:facet name="header">Cedula</f:facet>#{f.cedula}
+										</h:column>
+		<h:column>
+			<f:facet name="header">Direccion</f:facet>#{f.direccion}
+										</h:column>
+		<h:column>
+			<f:facet name="header">Telefono</f:facet>#{f.telefono}
+										</h:column>
+
+	</h:dataTable>
+	
+	
+	
+	<h1>Cuentas</h1>
+
+	<h:dataTable value="#{clienteBean.cuentasEncontradas}" var="c"
+		headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+		<h:column>
+			<f:facet name="header">Codigo</f:facet>#{c.codigo}
+										</h:column>
+		<h:column>
+			<f:facet name="header">Numero</f:facet>#{c.numero}
+										</h:column>
+		<h:column>
+			<f:facet name="header">Tipo de cuenta</f:facet>#{c.tipoCuenta}
+										</h:column>
+		<h:column>
+			<f:facet name="header">Codigo Cliente</f:facet>#{c.cliente.codigo}
+										</h:column>
+		
+	</h:dataTable>
+	
+		<h1>Transacciones</h1>
+	
+	<h:dataTable value="#{clienteBean.transacciones}" var="t"
+		headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+		<h:column>
+			<f:facet name="header">Codigo</f:facet>#{t.codigo}
+										</h:column>
+		<h:column>
+			<f:facet name="header">Fecha</f:facet>#{t.fecha}
+										</h:column>
+		<h:column>
+			<f:facet name="header">Descripcion</f:facet>#{t.descripccion}
+										</h:column>
+		<h:column>
+			<f:facet name="header">Tipo transaccion</f:facet>#{t.tipoTransaccion}
+										</h:column>
+		
+	</h:dataTable>
+	
+	
+	
+	<h1>Saldo Actual</h1>
+	<h:outputText value="#{clienteBean.saldoActual}" />
+	
+
+
+
+
+
+
+
+</h:body>
+</html>
